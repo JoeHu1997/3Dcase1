@@ -12,7 +12,7 @@ runApplication snappyHexMesh -overwrite
 cp -r 0.orig 0 > /dev/null 2>&1
 runApplication setFields
 runApplication decomposePar
-mpirun -np 24 interFoam -parallel > log.interFoam 
+mpirun -np 4 interDyMFoam -parallel > log.interDyMFoam 
 runApplication reconstructPar
 echo Reconstruct case... 
 reconstructPar > reconstructPar.log 
