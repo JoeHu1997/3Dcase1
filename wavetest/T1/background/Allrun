@@ -8,11 +8,11 @@ cd ${0%/*} || exit 1    # Run from this directory
 application=`getApplication`
 
 runApplication blockMesh
-runApplication snappyHexMesh -overwrite
+#runApplication snappyHexMesh -overwrite
 cp -r 0.orig 0 > /dev/null 2>&1
 runApplication setFields
 runApplication decomposePar
-mpirun -np 4 interDyMFoam -parallel > log.interDyMFoam 
+mpirun -np 4 interFoam -parallel > log.interFoam 
 runApplication reconstructPar
 echo Reconstruct case... 
 reconstructPar > reconstructPar.log 
