@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      motionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh       dynamicOversetFvMesh;
+
+motionSolverLibs    ("libsixDoFRigidBodyMotion.so");
+
+dynamicOversetFvMeshCoeffs
+{
+}
+
+motionSolver        sixDoFRigidBodyMotion;
+
+sixDoFRigidBodyMotionCoeffs
+{
+    patches         (floatingObject);
+    innerDistance   100;	//0.01L
+    outerDistance   101;	//1L
+
+    centreOfMass    (0.0 0.45 0.0);
+
+    // Cylinder dimensions
+    length          0.30;
+    width           0.90;
+    height	    0.10;
+	
+    // Density of the solid
+//    rhoSolid        500.0;
+
+    // Cylinder mass
+	mass            28.32;	
+	
+    //moment of inertia about the centre of mass
+
+	momentOfInertia (1.9352 0.236 2.124);
+	
+    report          on;
+	reportToFile    on;
+    accelerationRelaxation 	0.95;
+    accelerationDamping 	1.00;
+
+
+    solver
+    {
+        type Newmark;
+    }
+
+    constraints
+    {
+        AxisConstraint
+        {
+            sixDoFRigidBodyMotionConstraint axis;
+            axis (0 1 0);
+        }
+		fixedPoint
+		{
+			sixDoFRigidBodyMotionConstraint point;
+			centreOfRotation (0 0.45 0);
+			point (0 0.45 0);
+		}
+		fixedPlane
+		{
+			sixDoFRigidBodyMotionConstraint	plane;
+			normal	(0	1	0);
+		}
+    }
+}
+
+
+// ************************************************************************* //

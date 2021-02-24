@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  plus                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+    class           dictionary;
+    location        system;
+    object          sampleDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+type	sets;
+libs	("libsampling.so");
+
+interpolationScheme cell;
+
+setFormat       raw;
+
+surfaceFormat   raw;
+ 
+sets
+(    
+				GaugeVOF01
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   (  -15.0 0.45 -0.20);
+					end     (  -15.0 0.45  0.20);
+				}
+				GaugeVOF02
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   (  -5.0 0.45 -0.20);
+					end     (  -5.0 0.45  0.20);
+				}
+				GaugeVOF03
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   (  1.0 0.45 -0.20);
+					end     (  1.0 0.45  0.20);
+				}
+				GaugeVOF04
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   (  5.0 0.45 -0.20);
+					end     (  5.0 0.45  0.20);
+				}
+				GaugeVOF05
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   ( 10.0 0.45 -0.20);
+					end     ( 10.0 0.45  0.20);
+				}
+				GaugeVOF06
+				{
+					type    midPointAndFace;
+					axis    xyz;
+					start   ( 12.0 0.45 -0.20);
+					end     ( 12.0 0.45  0.20);
+				}
+
+);
+ 
+fields          (alpha.water );
+// *********************************************************************** //
