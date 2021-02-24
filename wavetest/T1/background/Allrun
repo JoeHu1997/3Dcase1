@@ -12,7 +12,7 @@ runApplication blockMesh
 cp -r 0.orig 0 > /dev/null 2>&1
 runApplication setFields
 runApplication decomposePar
-mpirun -np 4 interFoam -parallel > log.interFoam 
+mpirun -np 24 --hostfile machines --rankfile rankfile interFoam -parallel > log.interFoam 
 runApplication reconstructPar
 echo Reconstruct case... 
 reconstructPar > reconstructPar.log 
