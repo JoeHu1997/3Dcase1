@@ -16,7 +16,7 @@ mpirun -np 24 --hostfile machines --rankfile rankfile interFoam -parallel > log.
 runApplication reconstructPar
 echo Reconstruct case... 
 reconstructPar > reconstructPar.log 
-echo Reconstruct complete. 
+echo Reconstruct complete..
 rm -rf pro*    
 
 #------------------------------------------------------------------------------
