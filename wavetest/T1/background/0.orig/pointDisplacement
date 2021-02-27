@@ -22,11 +22,7 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    sides2
-    {
-        type            empty;
-    }
-	
+    
     inlet
     {
         type            fixedValue;
@@ -46,7 +42,11 @@ boundaryField
         value           uniform (0 0 0);
     }
 	
-    top
+    frontandback
+    {
+        type            empty;
+    }
+    atmosphere
     {
         type            zeroGradient;
     }
@@ -60,11 +60,7 @@ boundaryField
         patchType       overset;
         type            zeroGradient;
     }
-    sides1
-    {
-        patchType       overset;
-        type            zeroGradient;
-    }
+    
 }
 
 

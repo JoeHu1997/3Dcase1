@@ -42,11 +42,11 @@ boundaryField
     }
 	
 	
-    sides2
+    frontandback
     {
         type            empty;
     }
-    top
+    atmosphere
     {
         type            pressureInletOutletVelocity;
         value           uniform (0 0 0);

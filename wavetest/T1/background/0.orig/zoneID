@@ -34,7 +34,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    top
+    atmosphere
     {
         type            zeroGradient;
     }

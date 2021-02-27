@@ -25,16 +25,12 @@ boundaryField
         type            overset;
     }
 
-    sides2
+    
+    frontandback
     {
         type            empty;
     }
-
-    stationaryWalls
-    {
-        type            fixedFluxPressure;
-    }
-	
+    
     inlet
     {
         type            fixedFluxPressure;
@@ -50,7 +46,7 @@ boundaryField
         type            fixedFluxPressure;
     }
 	
-    top
+    atmosphere
     {
         type            totalPressure;
         p0              uniform 0;
